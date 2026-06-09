@@ -35,6 +35,7 @@ src/
 │   ├── Contact.jsx
 │   ├── EasterEggModal.jsx
 │   ├── EtqGuide.jsx
+│   ├── ExperienceTimeline.jsx
 │   ├── Hero.jsx
 │   ├── LifeDashboard.jsx
 │   ├── LiveProof.jsx

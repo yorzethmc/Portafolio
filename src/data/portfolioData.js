@@ -1,9 +1,12 @@
+const publicAsset = (path) => `${import.meta.env.BASE_URL}${path.replace(/^\/+/, '')}`;
+
 export const profileLinks = {
   email: 'yorzeth.info@gmail.com',
   whatsapp: '50688292124',
   linkedin: 'https://www.linkedin.com/in/yorzeth/?locale=es',
   github: 'https://github.com/yorzethmc',
-  cv: '/documents/erick-yorzeth-masis-cavero-cv.pdf',
+  cv: publicAsset('documents/erick-yorzeth-masis-cavero-cv.pdf'),
+  etqScriptCertificate: publicAsset('documents/certificates/etqscript-certificate.pdf'),
 };
 
 export const githubUsername = 'yorzethmc';
@@ -29,7 +32,7 @@ export const content = {
       eyebrow: 'Costa Rica | Remote-ready | Nearshore-friendly',
       name: 'Yorzeth Masis',
       lead:
-        'I build production-safe automations, ETQ Reliance solutions, support workflows, and internal software for regulated environments.',
+        'Senior Quality Systems Development Technician, Software Engineering student, ETQ Reliance specialist, and full-stack systems integration builder.',
       primaryCta: 'Explore real work',
       secondaryCta: 'Contact me',
       cvCta: 'Download CV',
@@ -55,6 +58,55 @@ export const content = {
         { name: 'Spanish', level: 'Native' },
         { name: 'English', level: 'B2+ / professional working proficiency' },
         { name: 'Portuguese', level: 'A2.1 / basic conversational' },
+      ],
+    },
+    experience: {
+      eyebrow: 'Experience path',
+      title: 'A support-to-engineering path with regulated-systems ownership.',
+      items: [
+        {
+          company: 'Regulated medical device company',
+          role: 'Senior Quality Systems Development Technician',
+          period: 'Apr 2025 - Present',
+          focus: 'ETQ Reliance NXG administration, ETQScript automation, QMS integrations, validation support, and platform lifecycle work.',
+          proof: [
+            'Technical administration and continuous improvement of ETQ Reliance NXG.',
+            'ETQScript business logic, automated rules, custom fields, and controlled task profiles.',
+            'Workday / Workato / SCIM provisioning support and integration troubleshooting.',
+            'Platform upgrade and validation support, including SRS, server sizing, software testing statements, and AWS deployment coordination.',
+            'Root-cause analysis across Production, Validation, and Development environments.',
+          ],
+        },
+        {
+          company: 'Auxis',
+          role: 'Retail Application Support Analyst',
+          period: 'Jun 2023 - Apr 2025',
+          focus: 'Enterprise application support, retail systems operations, device configuration, network support, and deployment troubleshooting.',
+          proof: [
+            'Supported business-critical mobile, desktop, and backend-adjacent retail applications.',
+            'Worked with static IP setup, Meraki firewall rules, monitoring, troubleshooting, and release support.',
+            'Created documentation and automation that improved ticket-handling efficiency.',
+          ],
+        },
+        {
+          company: 'Concentrix',
+          role: 'Chat Technical Support Specialist',
+          period: 'Mar 2023 - May 2023',
+          focus: 'Real-time technical support for mobile devices, software issues, service concerns, and case documentation.',
+          proof: [
+            'Resolved technical issues through live chat with precision and customer empathy.',
+            'Built early discipline around troubleshooting structure, communication, and case ownership.',
+          ],
+        },
+        {
+          company: 'Earlier operations and coordination roles',
+          role: 'Customer experience, project coordination, and administrative operations',
+          period: '2020 - 2023',
+          focus: 'Front-line service, documentation control, client communication, coordination, and operational problem solving.',
+          proof: [
+            'Built communication, ownership, documentation, and process-coordination skills before moving deeper into technical systems.',
+          ],
+        },
       ],
     },
     success: {
@@ -233,7 +285,7 @@ export const content = {
       eyebrow: 'Costa Rica | Remoto | Nearshore',
       name: 'Yorzeth Masis',
       lead:
-        'Construyo automatizaciones seguras para produccion, soluciones ETQ Reliance, flujos de soporte y software interno para ambientes regulados.',
+        'Senior Quality Systems Development Technician, estudiante de Ingenieria de Software, especialista ETQ Reliance y constructor de integraciones full-stack.',
       primaryCta: 'Ver trabajo real',
       secondaryCta: 'Contactarme',
       cvCta: 'Descargar CV',
@@ -259,6 +311,55 @@ export const content = {
         { name: 'Espanol', level: 'Nativo' },
         { name: 'Ingles', level: 'B2+ / competencia profesional' },
         { name: 'Portugues', level: 'A2.1 / conversacional basico' },
+      ],
+    },
+    experience: {
+      eyebrow: 'Ruta de experiencia',
+      title: 'Un camino de soporte a ingenieria con ownership en sistemas regulados.',
+      items: [
+        {
+          company: 'Empresa regulada de dispositivos medicos',
+          role: 'Senior Quality Systems Development Technician',
+          period: 'Abr 2025 - Presente',
+          focus: 'Administracion ETQ Reliance NXG, automatizacion ETQScript, integraciones QMS, soporte de validacion y ciclo de vida de plataforma.',
+          proof: [
+            'Administracion tecnica y mejora continua de ETQ Reliance NXG.',
+            'Logica ETQScript, reglas automatizadas, campos custom y task profiles controlados.',
+            'Soporte Workday / Workato / SCIM y troubleshooting de integraciones.',
+            'Soporte de upgrades y validacion, incluyendo SRS, server sizing, software testing statements y coordinacion AWS.',
+            'Root-cause analysis en Production, Validation y Development.',
+          ],
+        },
+        {
+          company: 'Auxis',
+          role: 'Retail Application Support Analyst',
+          period: 'Jun 2023 - Abr 2025',
+          focus: 'Soporte de aplicaciones empresariales, operaciones retail, configuracion de dispositivos, soporte de red y troubleshooting de despliegues.',
+          proof: [
+            'Soporte a aplicaciones criticas en mobile, desktop y entornos relacionados a backend.',
+            'Trabajo con IP estatica, reglas Meraki, monitoreo, troubleshooting y soporte de releases.',
+            'Documentacion y automatizaciones que mejoraron eficiencia de manejo de tickets.',
+          ],
+        },
+        {
+          company: 'Concentrix',
+          role: 'Chat Technical Support Specialist',
+          period: 'Mar 2023 - May 2023',
+          focus: 'Soporte tecnico en tiempo real para dispositivos moviles, problemas de software, servicio y documentacion de casos.',
+          proof: [
+            'Resolucion de problemas tecnicos por chat con precision y empatia.',
+            'Base temprana de troubleshooting estructurado, comunicacion y ownership de casos.',
+          ],
+        },
+        {
+          company: 'Roles previos de operaciones y coordinacion',
+          role: 'Customer experience, project coordination, and administrative operations',
+          period: '2020 - 2023',
+          focus: 'Servicio al cliente, control documental, comunicacion con clientes, coordinacion y resolucion operativa.',
+          proof: [
+            'Desarrollo de comunicacion, ownership, documentacion y coordinacion de procesos antes de profundizar en sistemas tecnicos.',
+          ],
+        },
       ],
     },
     success: {
@@ -423,26 +524,26 @@ export const certifications = [
   {
     name: 'ETQScript Certificate',
     provider: 'ETQ Reliance',
-    href: '/documents/certificates/etqscript-certificate.pdf',
+    href: publicAsset('documents/certificates/etqscript-certificate.pdf'),
   },
   {
     name: 'ETQ Reliance Promotion',
     provider: 'ETQ Reliance',
-    href: '/documents/certificates/etq-reliance-promotion.pdf',
+    href: publicAsset('documents/certificates/etq-reliance-promotion.pdf'),
   },
   {
     name: 'ETQ Validation',
     provider: 'ETQ Reliance',
-    href: '/documents/certificates/etq-validation.pdf',
+    href: publicAsset('documents/certificates/etq-validation.pdf'),
   },
   {
     name: 'Milestone EIGHT Administrator',
     provider: 'ETQ Reliance',
-    href: '/documents/certificates/milestone-eight-administrator.pdf',
+    href: publicAsset('documents/certificates/milestone-eight-administrator.pdf'),
   },
   {
     name: 'Milestone NINE Basic Designer',
     provider: 'ETQ Reliance',
-    href: '/documents/certificates/milestone-nine-basic-designer.pdf',
+    href: publicAsset('documents/certificates/milestone-nine-basic-designer.pdf'),
   },
 ];

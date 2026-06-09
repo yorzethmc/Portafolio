@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import LifeDashboard from './components/LifeDashboard';
+import ExperienceTimeline from './components/ExperienceTimeline';
 import SuccessShowcase from './components/SuccessShowcase';
 import BentoSkills from './components/BentoSkills';
 import EtqGuide from './components/EtqGuide';
@@ -66,6 +67,7 @@ export default function App() {
       />
       <Hero styles={styles} copy={copy} activePhrase={activePhrase} whatsappHref={whatsappHref} />
       <LifeDashboard styles={styles} copy={copy} onProfileClick={() => setShowEasterEgg(true)} />
+      <ExperienceTimeline styles={styles} copy={copy} />
       <SuccessShowcase styles={styles} copy={copy} activeCase={activeCase} setActiveCase={setActiveCase} />
       <BentoSkills styles={styles} copy={copy} />
       <LiveProof styles={styles} copy={copy} mailtoHref={mailtoHref} whatsappHref={whatsappHref} />

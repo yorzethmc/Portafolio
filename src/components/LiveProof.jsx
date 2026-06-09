@@ -83,7 +83,7 @@ export default function LiveProof({ styles, copy, mailtoHref, whatsappHref }) {
           <span>Fast actions</span>
           <div className={styles.quickLinks}>
             <motion.a href={profileLinks.cv} whileHover={{ y: -3 }}>{copy.liveProof.cv}</motion.a>
-            <motion.a href="/documents/certificates/etqscript-certificate.pdf" whileHover={{ y: -3 }}>
+            <motion.a href={profileLinks.etqScriptCertificate} whileHover={{ y: -3 }}>
               {copy.liveProof.certificates}
             </motion.a>
             <motion.a href={mailtoHref} whileHover={{ y: -3 }}>{copy.liveProof.email}</motion.a>

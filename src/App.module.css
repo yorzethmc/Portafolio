@@ -320,6 +320,86 @@
   background: var(--surface-strong);
 }
 
+.experienceSection {
+  background: var(--surface-strong);
+}
+
+.experienceLayout {
+  display: grid;
+  gap: 22px;
+  grid-template-columns: minmax(280px, 0.86fr) minmax(320px, 1.14fr);
+}
+
+.experienceRail {
+  display: grid;
+  gap: 10px;
+}
+
+.experienceTab {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  color: var(--text);
+  cursor: pointer;
+  display: grid;
+  gap: 6px;
+  min-height: 104px;
+  padding: 18px;
+  text-align: left;
+}
+
+.experienceTab.active {
+  background: color-mix(in srgb, var(--accent) 16%, var(--surface));
+  border-color: var(--accent);
+}
+
+.experienceTab span {
+  color: var(--accent);
+  font-size: 0.78rem;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.experienceTab strong {
+  line-height: 1.25;
+}
+
+.experienceTab small {
+  color: var(--muted);
+}
+
+.experienceDetail {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  min-height: 440px;
+  padding: 34px;
+}
+
+.experienceDetail h3 {
+  font-size: 2rem;
+  margin: 0 0 8px;
+}
+
+.experienceDetail > strong {
+  color: var(--accent-2);
+  display: block;
+  margin-bottom: 22px;
+}
+
+.experienceDetail p,
+.experienceDetail li {
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.experienceDetail ul {
+  display: grid;
+  gap: 10px;
+  margin: 22px 0 0;
+  padding-left: 20px;
+}
+
 .caseLayout {
   display: grid;
   gap: 22px;
@@ -739,6 +819,7 @@
   }
 
   .dashboardGrid,
+  .experienceLayout,
   .caseLayout,
   .liveProofGrid,
   .contactSection {
