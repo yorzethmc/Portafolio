@@ -6,12 +6,16 @@ React portfolio for presenting production-oriented ETQ Reliance, QMS automation,
 
 - Animated hero with dynamic positioning phrases.
 - Dark mode and light mode.
-- Interactive "My life dashboard" cards.
-- Real-life success-case showcase with challenge, solution, and impact.
-- Bento grid for skills, platforms, and engineering methods.
+- English / Spanish language switch.
+- Recruiter-focused value proposition with remote and nearshore positioning.
+- Interactive "My life dashboard" cards with experience, rate, availability, and languages.
+- Real-life success-case showcase with progressive disclosure for challenge, solution, and impact.
+- Skill level grid for platforms, languages, tools, and engineering methods.
+- Live proof section with GitHub public API data, Costa Rica time, CV, certificates, email, and WhatsApp.
 - ETQ Reliance certifications and downloadable CV.
 - Contact form that builds a ready-to-send email.
 - Public technical writing project linked from `../ETQ Scripts Personal documentation`.
+- Hidden profile-photo interaction with an original conga-style rhythm loop.
 
 ## Architecture
 
@@ -29,9 +33,11 @@ src/
 │   ├── BentoSkills.jsx
 │   ├── Certifications.jsx
 │   ├── Contact.jsx
+│   ├── EasterEggModal.jsx
 │   ├── EtqGuide.jsx
 │   ├── Hero.jsx
 │   ├── LifeDashboard.jsx
+│   ├── LiveProof.jsx
 │   ├── Navbar.jsx
 │   └── SuccessShowcase.jsx
 └── data/
