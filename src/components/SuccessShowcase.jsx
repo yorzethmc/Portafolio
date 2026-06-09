@@ -1,10 +1,21 @@
 import { AnimatePresence, motion } from 'framer-motion';
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import AnimatedSection from './AnimatedSection';
 
 export default function SuccessShowcase({ styles, copy, activeCase, setActiveCase }) {
   const [showDetails, setShowDetails] = useState(false);
+  const detailRef = useRef(null);
   const selected = copy.success.cases[activeCase];
+
+  const scrollDetailIntoViewOnMobile = () => {
+    if (!window.matchMedia('(max-width: 1040px)').matches) {
+      return;
+    }
+
+    window.setTimeout(() => {
+      detailRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 120);
+  };
 
   return (
     <AnimatedSection id="success-cases" className={`${styles.section} ${styles.caseSection}`}>
@@ -22,6 +33,7 @@ export default function SuccessShowcase({ styles, copy, activeCase, setActiveCas
               onClick={() => {
                 setActiveCase(index);
                 setShowDetails(false);
+                scrollDetailIntoViewOnMobile();
               }}
               type="button"
               whileHover={{ x: 6 }}
@@ -35,6 +47,7 @@ export default function SuccessShowcase({ styles, copy, activeCase, setActiveCas
         </div>
         <AnimatePresence mode="wait">
           <motion.article
+            ref={detailRef}
             key={selected.title}
             className={styles.caseDetail}
             initial={{ opacity: 0, x: 24 }}

@@ -1,10 +1,21 @@
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import AnimatedSection from './AnimatedSection';
 
 export default function ExperienceTimeline({ styles, copy }) {
   const [activeIndex, setActiveIndex] = useState(0);
+  const detailRef = useRef(null);
   const active = copy.experience.items[activeIndex];
+
+  const scrollDetailIntoViewOnMobile = () => {
+    if (!window.matchMedia('(max-width: 1040px)').matches) {
+      return;
+    }
+
+    window.setTimeout(() => {
+      detailRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 120);
+  };
 
   return (
     <AnimatedSection className={`${styles.section} ${styles.experienceSection}`}>
@@ -18,7 +29,10 @@ export default function ExperienceTimeline({ styles, copy }) {
             <motion.button
               key={`${item.company}-${item.period}`}
               className={index === activeIndex ? `${styles.experienceTab} ${styles.active}` : styles.experienceTab}
-              onClick={() => setActiveIndex(index)}
+              onClick={() => {
+                setActiveIndex(index);
+                scrollDetailIntoViewOnMobile();
+              }}
               type="button"
               whileHover={{ x: 5 }}
               whileTap={{ scale: 0.98 }}
@@ -31,6 +45,7 @@ export default function ExperienceTimeline({ styles, copy }) {
         </div>
         <AnimatePresence mode="wait">
           <motion.article
+            ref={detailRef}
             key={`${active.company}-${active.role}`}
             className={styles.experienceDetail}
             initial={{ opacity: 0, y: 18 }}
