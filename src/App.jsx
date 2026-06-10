@@ -1,87 +1,60 @@
-import { useEffect, useMemo, useState } from 'react';
-import Navbar from './components/Navbar';
-import Hero from './components/Hero';
-import LifeDashboard from './components/LifeDashboard';
-import ExperienceTimeline from './components/ExperienceTimeline';
-import SuccessShowcase from './components/SuccessShowcase';
-import BentoSkills from './components/BentoSkills';
-import EtqGuide from './components/EtqGuide';
-import Certifications from './components/Certifications';
-import Contact from './components/Contact';
-import LiveProof from './components/LiveProof';
-import EasterEggModal from './components/EasterEggModal';
-import { content, profileLinks } from './data/portfolioData';
-import styles from './App.module.css';
+import React, { useState, useEffect, useRef } from 'react';
+import { Navbar } from './components/Navbar';
+import { Hero } from './sections/Hero';
+import { PymeServices } from './sections/PymeServices';
+import { CorporateProfile } from './sections/CorporateProfile';
+import { FieldNotes } from './sections/FieldNotes';
+import { Contact } from './sections/Contact';
+import { EasterEgg } from './sections/EasterEgg';
 
-export default function App() {
-  const [theme, setTheme] = useState(() => localStorage.getItem('portfolio-theme') || 'dark');
-  const [locale, setLocale] = useState(() => localStorage.getItem('portfolio-locale') || 'en');
-  const [activePhrase, setActivePhrase] = useState(0);
-  const [activeCase, setActiveCase] = useState(0);
-  const [contact, setContact] = useState({ name: '', email: '', message: '' });
-  const [showEasterEgg, setShowEasterEgg] = useState(false);
-
-  const copy = content[locale];
+function App() {
+  const [isEasterEggActive, setIsEasterEggActive] = useState(false);
+  const audioRef = useRef(null);
 
   useEffect(() => {
-    localStorage.setItem('portfolio-theme', theme);
-  }, [theme]);
+    // Only load audio if reduced motion is not forced (for performance & a11y)
+    const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+    if (!mediaQuery.matches) {
+      audioRef.current = new Audio('/assets/audio/conga-mode.mp3');
+      audioRef.current.volume = 0.6;
+    }
+  }, []);
 
-  useEffect(() => {
-    localStorage.setItem('portfolio-locale', locale);
-  }, [locale]);
-
-  useEffect(() => {
-    const timer = window.setInterval(() => {
-      setActivePhrase((current) => (current + 1) % copy.heroPhrases.length);
-    }, 2200);
-    return () => window.clearInterval(timer);
-  }, [copy.heroPhrases.length]);
-
-  const mailtoHref = useMemo(() => {
-    const subject = encodeURIComponent(`Portfolio contact from ${contact.name || 'visitor'}`);
-    const body = encodeURIComponent(
-      `Name: ${contact.name}\nEmail: ${contact.email}\n\n${contact.message}`
-    );
-    return `mailto:${profileLinks.email}?subject=${subject}&body=${body}`;
-  }, [contact]);
-
-  const whatsappHref = useMemo(() => {
-    const message =
-      locale === 'en'
-        ? 'Hi Yorzeth, I saw your portfolio and would like to talk about a work opportunity.'
-        : 'Hola Yorzeth, vi tu portafolio y me gustaria hablar sobre una oportunidad laboral.';
-    return `https://wa.me/${profileLinks.whatsapp}?text=${encodeURIComponent(message)}`;
-  }, [locale]);
+  const activateEasterEgg = () => {
+    if (audioRef.current) {
+      audioRef.current.currentTime = 0;
+      audioRef.current.play().catch(e => console.log('Audio blocked by browser', e));
+    }
+    setIsEasterEggActive(true);
+    
+    // Auto turn off after 15 seconds
+    setTimeout(() => {
+      setIsEasterEggActive(false);
+      if (audioRef.current) {
+        audioRef.current.pause();
+      }
+    }, 15000);
+  };
 
   return (
-    <main className={styles.app} data-theme={theme}>
-      <Navbar
-        styles={styles}
-        navItems={copy.navItems}
-        labels={copy.themeLabels}
-        theme={theme}
-        locale={locale}
-        onToggleTheme={() => setTheme((current) => (current === 'dark' ? 'light' : 'dark'))}
-        onToggleLocale={() => setLocale((current) => (current === 'en' ? 'es' : 'en'))}
-      />
-      <Hero styles={styles} copy={copy} activePhrase={activePhrase} whatsappHref={whatsappHref} />
-      <LifeDashboard styles={styles} copy={copy} onProfileClick={() => setShowEasterEgg(true)} />
-      <ExperienceTimeline styles={styles} copy={copy} />
-      <SuccessShowcase styles={styles} copy={copy} activeCase={activeCase} setActiveCase={setActiveCase} />
-      <BentoSkills styles={styles} copy={copy} />
-      <LiveProof styles={styles} copy={copy} mailtoHref={mailtoHref} whatsappHref={whatsappHref} />
-      <EtqGuide styles={styles} copy={copy} />
-      <Certifications styles={styles} copy={copy} />
-      <Contact
-        styles={styles}
-        copy={copy}
-        contact={contact}
-        setContact={setContact}
-        mailtoHref={mailtoHref}
-        whatsappHref={whatsappHref}
-      />
-      <EasterEggModal styles={styles} copy={copy} open={showEasterEgg} onClose={() => setShowEasterEgg(false)} />
-    </main>
+    <>
+      <Navbar />
+      
+      <main>
+        <Hero onActivateEasterEgg={activateEasterEgg} />
+        <PymeServices />
+        <CorporateProfile />
+        <FieldNotes />
+        <Contact />
+      </main>
+
+      <footer style={{ textAlign: 'center', padding: '40px', color: 'var(--color-muted)', borderTop: '1px solid var(--color-border)', marginTop: '60px' }}>
+        <p>&copy; {new Date().getFullYear()} Erick Yorzeth Masis. Todos los derechos reservados.</p>
+      </footer>
+
+      <EasterEgg isActive={isEasterEggActive} />
+    </>
   );
 }
+
+export default App;
