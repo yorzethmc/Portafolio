@@ -95,60 +95,62 @@ export function RestaurantPricing() {
         </div>
 
         {/* Pricing Cards */}
-        <div className="grid lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <div className="grid lg:grid-cols-3 gap-8 max-w-6xl mx-auto pt-4">
           {plans.map((plan, idx) => (
-            <Card key={idx} className={`relative flex flex-col ${plan.popular ? 'border-primary shadow-lg shadow-primary/10 scale-105 z-10 bg-card' : 'border-border/50 bg-background/50'}`}>
+            <div key={idx} className={`relative flex flex-col ${plan.popular ? 'scale-105 z-10' : ''}`}>
               {plan.popular && (
-                <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2">
-                  <Badge className="bg-primary text-primary-foreground font-semibold px-3 py-1">
+                <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20">
+                  <Badge className="bg-primary text-primary-foreground font-semibold px-4 py-1 shadow-md">
                     Más Recomendado
                   </Badge>
                 </div>
               )}
-              <CardHeader className="pt-8 text-center pb-4 border-b border-border/40">
-                <Badge variant="outline" className="w-fit mx-auto mb-4 bg-muted">{plan.level}</Badge>
-                <CardTitle className="text-2xl mb-2">{plan.name}</CardTitle>
-                <p className="text-sm text-muted-foreground h-20">{plan.description}</p>
-              </CardHeader>
-              <CardContent className="flex flex-col flex-grow pt-6">
-                
-                <div className="space-y-6 mb-8">
-                  <div>
-                    <p className="text-xs uppercase tracking-wider text-muted-foreground font-semibold mb-1">Venta Total</p>
-                    <div className="flex items-baseline gap-1">
-                      <span className="text-3xl font-bold">{plan.priceTotal}</span>
-                      <span className="text-sm text-muted-foreground">único pago</span>
-                    </div>
-                  </div>
+              <Card className={`relative flex flex-col h-full ${plan.popular ? 'border-primary shadow-lg shadow-primary/10 bg-card' : 'border-border/50 bg-background/50'}`}>
+                <CardHeader className="pt-8 text-center pb-4 border-b border-border/40">
+                  <Badge variant="outline" className="w-fit mx-auto mb-4 bg-muted">{plan.level}</Badge>
+                  <CardTitle className="text-2xl mb-2">{plan.name}</CardTitle>
+                  <p className="text-sm text-muted-foreground h-20">{plan.description}</p>
+                </CardHeader>
+                <CardContent className="flex flex-col flex-grow pt-6">
                   
-                  <div className="border-t border-border/40 pt-4">
-                    <p className="text-xs uppercase tracking-wider text-muted-foreground font-semibold mb-1">Renta Mensual</p>
-                    <div className="flex items-baseline gap-1 mb-1">
-                      <span className="text-3xl font-bold text-primary">{plan.priceMonthly}</span>
-                      <span className="text-sm text-muted-foreground">/mes</span>
+                  <div className="space-y-6 mb-8">
+                    <div>
+                      <p className="text-xs uppercase tracking-wider text-muted-foreground font-semibold mb-1">Venta Total</p>
+                      <div className="flex items-baseline gap-1">
+                        <span className="text-3xl font-bold">{plan.priceTotal}</span>
+                        <span className="text-sm text-muted-foreground">único pago</span>
+                      </div>
                     </div>
-                    <p className="text-xs text-muted-foreground">+ {plan.setup} de Setup inicial</p>
+                    
+                    <div className="border-t border-border/40 pt-4">
+                      <p className="text-xs uppercase tracking-wider text-muted-foreground font-semibold mb-1">Renta Mensual</p>
+                      <div className="flex items-baseline gap-1 mb-1">
+                        <span className="text-3xl font-bold text-primary">{plan.priceMonthly}</span>
+                        <span className="text-sm text-muted-foreground">/mes</span>
+                      </div>
+                      <p className="text-xs text-muted-foreground">+ {plan.setup} de Setup inicial</p>
+                    </div>
                   </div>
-                </div>
 
-                <ul className="space-y-3 mb-8 flex-grow">
-                  {plan.features.map((feature, i) => (
-                    <li key={i} className="flex items-start text-sm">
-                      <CheckCircle2 className="h-4 w-4 text-primary mr-2 mt-0.5 shrink-0" />
-                      <span className="text-muted-foreground">{feature}</span>
-                    </li>
-                  ))}
-                </ul>
+                  <ul className="space-y-3 mb-8 flex-grow">
+                    {plan.features.map((feature, i) => (
+                      <li key={i} className="flex items-start text-sm">
+                        <CheckCircle2 className="h-4 w-4 text-primary mr-2 mt-0.5 shrink-0" />
+                        <span className="text-muted-foreground">{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
 
-                <Link 
-                  href={`https://wa.me/50687292124?text=Hola, me interesa el plan ${plan.level} (${plan.name}) para restaurantes.`}
-                  target="_blank"
-                  className={cn(buttonVariants({ variant: plan.popular ? 'default' : 'outline', size: 'lg' }), "w-full mt-auto")}
-                >
-                  Cotizar Plan <ArrowRight className="ml-2 h-4 w-4" />
-                </Link>
-              </CardContent>
-            </Card>
+                  <Link 
+                    href={`https://wa.me/50687292124?text=Hola, me interesa el plan ${plan.level} (${plan.name}) para restaurantes.`}
+                    target="_blank"
+                    className={cn(buttonVariants({ variant: plan.popular ? 'default' : 'outline', size: 'lg' }), "w-full mt-auto")}
+                  >
+                    Cotizar Plan <ArrowRight className="ml-2 h-4 w-4" />
+                  </Link>
+                </CardContent>
+              </Card>
+            </div>
           ))}
         </div>
       </div>
