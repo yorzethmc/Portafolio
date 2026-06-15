@@ -1,73 +1,36 @@
-# Erick Yorzeth Masis Cavero | QMS Automation Portfolio
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-React portfolio for presenting production-oriented ETQ Reliance, QMS automation, integrations, validation mindset, and regulated systems work.
+## Getting Started
 
-## What This Shows
-
-- Animated hero with dynamic positioning phrases.
-- Dark mode and light mode.
-- English / Spanish language switch.
-- Recruiter-focused value proposition with remote and nearshore positioning.
-- Interactive "My life dashboard" cards with experience, rate, availability, and languages.
-- Real-life success-case showcase with progressive disclosure for challenge, solution, and impact.
-- Skill level grid for platforms, languages, tools, and engineering methods.
-- Live proof section with GitHub public API data, Costa Rica time, CV, certificates, email, and WhatsApp.
-- ETQ Reliance certifications and downloadable CV.
-- Contact form that builds a ready-to-send email.
-- Public technical writing project linked from `../ETQ Scripts Personal documentation`.
-- Hidden profile-photo interaction with an original conga-style rhythm loop.
-
-## Architecture
-
-```text
-src/
-├── App.jsx
-├── App.module.css
-├── main.jsx
-├── reset.css
-├── assets/
-│   ├── profile.jpg
-│   └── qms-automation-hero.png
-├── components/
-│   ├── AnimatedSection.jsx
-│   ├── BentoSkills.jsx
-│   ├── Certifications.jsx
-│   ├── Contact.jsx
-│   ├── EasterEggModal.jsx
-│   ├── EtqGuide.jsx
-│   ├── ExperienceTimeline.jsx
-│   ├── Hero.jsx
-│   ├── LifeDashboard.jsx
-│   ├── LiveProof.jsx
-│   ├── Navbar.jsx
-│   └── SuccessShowcase.jsx
-└── data/
-    └── portfolioData.js
-```
-
-## Stack
-
-- React
-- Vite
-- CSS Modules
-- Framer Motion
-- Functional components and hooks
-
-## Run Locally
+First, run the development server:
 
 ```bash
-npm install
 npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
 ```
 
-Open:
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-```text
-http://127.0.0.1:5173
-```
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-## Build
+This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-```bash
-npm run build
-```
+## Learn More
+
+To learn more about Next.js, take a look at the following resources:
+
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+
+## Deploy on Vercel
+
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
