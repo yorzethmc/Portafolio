@@ -12,7 +12,7 @@ export function Hero() {
       
       <div className="container px-4 md:px-6 max-w-5xl mx-auto text-center">
         <div className="mb-8 relative mx-auto w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden border-4 border-background shadow-xl ring-2 ring-primary/20">
-          <Image src="/profile.jpg" alt="Erick Yorzeth Masis" fill className="object-cover" />
+          <img src="/Portafolio/profile.jpg" alt="Erick Yorzeth Masis" className="object-cover w-full h-full" />
         </div>
         
         <div className="inline-flex items-center rounded-full border border-border/40 bg-muted/20 px-3 py-1 text-sm font-medium backdrop-blur-md mb-8">
